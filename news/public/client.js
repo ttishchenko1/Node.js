@@ -1,9 +1,8 @@
 window.addEventListener('load', function () {
 	var title = document.getElementById('title'),
         selectList = document.getElementById('selectSite'),		        
-
-		rangeControl = document.getElementById('rangeControl'),
-		qtyArticle = document.getElementById('qtyArticle');
+	rangeControl = document.getElementById('rangeControl'),
+	qtyArticle = document.getElementById('qtyArticle');
 
 	function getSelectedSiteName () {	
 		var regionId = selectList.options[selectList.selectedIndex].value;	    
