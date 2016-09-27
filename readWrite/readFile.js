@@ -1,24 +1,20 @@
 var fs = require('fs');
 var allGames, 
-	qtyWins = 0, 
-	qtyLoss = 0, 
-	maxWins = 0, 
-	maxLoss = 0,
-	flagWin;
+    qtyWins = 0, 
+    qtyLoss = 0, 
+    maxWins = 0, 
+    maxLoss = 0,
+    flagWin;
 
 fs.readFile('log.txt', 'utf8',(err, data) => {
 
 	if (err) throw err;
 	allGames = data.split('\r');
-	// allGames = allGames.trim();
 	allGames = allGames.filter(function(row) {
 		return row.length > 0;
 	});
 	allGames.forEach( function (items) {
 		var item = items.split('=');
-
-		// console.log(item);
-
 		if (item[0] == item[1]) {
 			if(flagWin) {
 				maxWins ++;
@@ -32,13 +28,10 @@ fs.readFile('log.txt', 'utf8',(err, data) => {
 			qtyLoss = qtyLoss + 1;
 			flagWin = false;
 		}
-
 	})
-
-    console.log('1. общее количество партий: ' + allGames.length);
+	console.log('1. общее количество партий: ' + allGames.length);
 	console.log('2. общее выигранных партий: ' + qtyWins);
 	console.log('3. общее проигранных партий: ' + qtyLoss);
 	console.log('4. максимальное число побед подряд: ' + maxWins);
 	console.log('5. максимальное число проиграшей подряд: ' + maxLoss);
-
 });
