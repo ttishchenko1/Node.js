@@ -15,12 +15,12 @@ ask("Pick a number:", states, function (err, answer) {
     	result = 'Попробуй еще!'
     };
 
-	console.log(result);
+    console.log(result);
     console.log("Вы выбрали: " + answer);
     console.log("Компьютер выбрал: " + pcValue);
 
     fs.appendFile('log.txt', (answer + '='+ pcValue + '\r'), (err) => {
-		if (err) throw err;
-	});
-
+	if (err) throw err;
+    });
+	
 });
